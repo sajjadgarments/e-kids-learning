@@ -1,47 +1,115 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
-<html>
-	
+﻿@model Final_Project.Models.User
+
 <head>
+    <title></title>
     <style>
-        .p1{
-            padding-top:0px;
+        body
+        {
+            background-color:green;
+        }
+        .dt-sc-tabs-content{
+            padding-left:150px;
         }
     </style>
-<title>Trendy Login Forms in Flat Design :: w3layouts</title>
-<link href="~/Content/style1.css" rel='stylesheet' type='text/css' />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 </head>
+<html>
 <body>
-	
- <!--start-main-->
-    <p class="p1">.</p>
- 	<div class="login-05">
-		<div class="fifth-login">
-			<h2>LOGIN</h2>
-			<form class="five">
-				<li>
-					<input type="text" class="text" value="EMAIL" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'EMAIL';}" ><a href="#" class=" icon5 user2"></a>
-				</li>
-				<li class="blue">
-					<input type="password" value="PASSWORD" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'PASSWORD';}"><a href="#" class=" icon5 lock2"></a>
-				</li>
-				<div class="submit-five">
-					<input type="submit" onclick="myFunction()" value="LOG IN" > 
-				</div>
-			</form>
-		</div>
-	</div>
-	</p>
-	<!--//End-login-form-->
-	<!--start-copyright-->
-   		
-	<!--//end-copyright-->
-		 		
+    <!--wrapper starts-->
+    <div class="wrapper">
+        <!--header starts-->
+        <!--header ends-->
+        <!--main starts-->
+        <div id="main">
+            <!--breadcrumb-section starts-->
+            @*<div class="breadcrumb-section">
+                <div class="container">
+                    <h1>Login Or Register</h1>
+                </div>
+            </div>*@
+            <!--breadcrumb-section ends-->
+            <!--container starts-->
+            <div class="container">
+                <!--primary starts-->
+                <section id="primary" class="content-full-width">
+
+                    <!--dt-sc-one-half starts-->
+                    <div class="column dt-sc-one-half first">
+                        @*<h2>Horizontal Tabs</h2>*@
+                        <!--dt-sc-tabs-container starts-->
+                        <div class="dt-sc-tabs-container">
+                            <ul class="dt-sc-tabs">
+                                <li><a href=""> Login </a></li>
+                                @*<li><a href="tabs-toggles.html#"> Register </a></li>*@
+
+                            </ul>
+
+                            <div class="dt-sc-tabs-content">
+                                @using (Html.BeginForm("loginconfirm", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "Login faild ,check your login details")
+    {
+
+
+        <h2>Username</h2>
+        @Html.EditorFor(model => model.UserName, new { @class = "text" })
+        <h2>Password</h2>
+        @Html.EditorFor(model => model.Password, new { @class = "column dt-sc-one-third first", onblur = "if (this.value == '') {this.value = 'PASSWORD';" })
+        <div class="submit-five">
+            <input type="submit" value="LOG IN">
+        </div>
+    }
+}
+                            </div>
+                            @*<div class="dt-sc-tabs-content">
+                                Register...............
+                            </div>*@
+                        </div>
+                        <!--dt-sc-tabs-container ends-->
+                    </div>
+                    <!--dt-sc-one-half ends-->
+                    <!--dt-sc-one-half starts-->
+
+                    @*<div class="column dt-sc-one-half">
+                        <h2>Vertical Tabs</h2>
+                        <!--dt-sc-tabs-vertical-container starts-->
+                        <div class="dt-sc-tabs-vertical-container">
+                            <ul class="dt-sc-tabs-vertical-frame">
+                                <li><a href="tabs-toggles.html#"> Tab 1 </a></li>
+                                <li><a href="tabs-toggles.html#"> Tab 2 </a></li>
+                                <li><a href="tabs-toggles.html#"> Tab 3 </a></li>
+                            </ul>
+                            <div class="dt-sc-tabs-vertical-frame-content">
+                                Tab 1
+                            </div>
+                            <div class="dt-sc-tabs-vertical-frame-content">
+                                Tab 2
+                            </div>
+                            <div class="dt-sc-tabs-vertical-frame-content">
+                                Tab 3
+                            </div>
+                        </div>
+                        <!--dt-sc-tabs-vertical-container ends-->
+                    </div>*@
+                    <!--dt-sc-one-half ends-->
+
+                    @*<div class="dt-sc-hr"></div>*@
+
+                    <!--dt-sc-one-half starts-->
+                    <!--dt-sc-one-half ends-->
+
+                </section>
+                <!--primary ends-->
+            </div>
+            <!--container ends-->
+        </div>
+        <!--main ends-->
+        <!--footer starts-->
+        <!--footer ends-->
+
+    </div>
+    <!--wrapper ends-->
+
 </body>
 </html>
+
+.............

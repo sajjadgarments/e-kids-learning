@@ -74,19 +74,19 @@
                         <img class="ls-l" style="top:23px;left:998px;white-space: nowrap;" data-ls="delayin:1500;scaleyin:3;transformoriginin:0% 50% 0;parallaxlevel:2;" src="~/Images/butterfly.png" alt="">
                         <img class="ls-l" style="top:67px;left:679px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:-100;delayin:2000;rotateyin:30;parallaxlevel:5;" src="~/Images/b-swirl.png" alt="">
                         
-                         <a href="@Url.Action("SignupForm", "SignupForm")" class="ls-l" style="top:78px;left:98px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:200;delayin:1500;offsetxout:0;offsetyout:150;transformoriginin:0% 50% 0;parallaxlevel:8;"><img src="~/Images/p1.gif" alt=""></a>
+                         <a href="@Url.Action("English", "English")" class="ls-l" style="top:78px;left:98px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:200;delayin:1500;offsetxout:0;offsetyout:150;transformoriginin:0% 50% 0;parallaxlevel:8;"><img src="~/Images/p1.gif" alt=""></a>
                          <img class="ls-l" style="top:170px;left:50px;white-space: nowrap;" data-ls="delayin:1500;rotateyin:30;transformoriginin:0% 50% 0;parallaxlevel:8;" src="~/Images/english.gif" alt="">
 
-                        <a href="@Url.Action("SignupForm", "SignupForm")" class="ls-l" style="top:350px;left:98px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:200;delayin:3000;offsetxout:0;offsetyout:150;transformoriginin:0% 50% 0;parallaxlevel:8;"><img src="~/Images/p2.gif" alt=""></a>
+                        <a href="@Url.Action("Arts", "Arts")" class="ls-l" style="top:350px;left:98px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:200;delayin:3000;offsetxout:0;offsetyout:150;transformoriginin:0% 50% 0;parallaxlevel:8;"><img src="~/Images/p2.gif" alt=""></a>
                          <img class="ls-l" style="top:450px;left:50px;white-space: nowrap;" data-ls="delayin:3000;rotateyin:30;transformoriginin:0% 50% 0;parallaxlevel:8;" src="~/Images/arts.gif" alt="">
  
 
 
-                        <a href="@Url.Action("SignupForm", "SignupForm")" class="ls-l" style="top:78px;left:430px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:200;delayin:1500;offsetxout:0;offsetyout:150;transformoriginin:0% 50% 0;parallaxlevel:8;"><img src="~/Images/p3.gif" alt=""></a>
+                        <a href="@Url.Action("G_K", "G_K")" class="ls-l" style="top:78px;left:430px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:200;delayin:1500;offsetxout:0;offsetyout:150;transformoriginin:0% 50% 0;parallaxlevel:8;"><img src="~/Images/p3.gif" alt=""></a>
                          <img class="ls-l" style="top:170px;left:400px;white-space: nowrap;" data-ls="delayin:1500;rotateyin:30;transformoriginin:0% 50% 0;parallaxlevel:8;" src="~/Images/general.gif" alt="">
 
 
-                       <a href="@Url.Action("SignupForm", "SignupForm")" class="ls-l" style="top:350px;left:430px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:200;delayin:3000;offsetxout:0;offsetyout:150;transformoriginin:0% 50% 0;parallaxlevel:8;"><img src="~/Images/p4.gif" alt=""></a>
+                       <a href="@Url.Action("Maths", "Maths")" class="ls-l" style="top:350px;left:430px;white-space: nowrap;" data-ls="offsetxin:0;offsetyin:200;delayin:3000;offsetxout:0;offsetyout:150;transformoriginin:0% 50% 0;parallaxlevel:8;"><img src="~/Images/p4.gif" alt=""></a>
                          <img class="ls-l" style="top:450px;left:400px;white-space: nowrap;" data-ls="delayin:3000;rotateyin:30;transformoriginin:0% 50% 0;parallaxlevel:8;" src="~/Images/maths.gif" alt="">
  
 
@@ -111,6 +111,18 @@
             <audio controls loop autoplay>
                             <source src="~/Music/12.mp3" type="audio/mp3" />
                         </audio>
+            
+            @* .........login.................. *@
+            <div>
+                @if (Session["LogedUserUserName"] != null)
+                {
+                    <text>
+                Welcome @Session["LogedUserUserName"].ToString()
+                </text>
+                }
+            </div>
+
+            @* ............ *@
             <!--primary starts-->
             <section id="primary" class="content-full-width">
                 <!--container starts-->

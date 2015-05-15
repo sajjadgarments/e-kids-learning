@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -34,8 +35,8 @@
     })
 
 </script>    <link href="~/Content/bgaudioplayer.css" rel="stylesheet" />
-
-    <script src="~/Scripts/bgaudioplayer.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    
 
     <script src="~/Scripts/jquery.js"></script>
 
@@ -84,8 +85,17 @@
     <script type='text/javascript' src="~/Scripts/greensock.js"></script> 
     <script type='text/javascript' src="~/Scripts/layerslider.transitions.js"></script> 
     <!--<script type="text/javascript">var lsjQuery = jQuery;</script>--> 
+
+    @*<link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>*@
+    <script src="~/Scripts/bgaudioplayer.js"></script>
+
+   
     <script type="text/javascript">var lsjQuery = jQuery;</script><script type="text/javascript">        lsjQuery(document).ready(function () { if (typeof lsjQuery.fn.layerSlider == "undefined") { lsShowNotice('layerslider_1', 'jquery'); } else { lsjQuery("#layerslider_4").layerSlider({ responsiveUnder: 1170, layersContainer: 1170, skinsPath: 'js/layerslider/skins/' }) } }); </script>
     
+
+
+
 </head>
 <body>
      <header>
@@ -96,9 +106,30 @@
                 <div class="contact-details">
                     <p class="mail">
                         @*<a href="index.html#">contact@kidslife.com</a>*@
+                        
+                        @if (Session["loggedin"] ==null)
+                        {
+                        
                         <a href="@Url.Action("LoginForm", "LoginForm")" class="dt-sc-button medium">LOGIN</a>
-                        <a href="@Url.Action("SignupForm", "SignupForm")" class="dt-sc-button medium pink">Sign-Up</a>
-                      
+                       
+                        
+                        
+                         <a href="@Url.Action("SignupForm", "SignupForm")" class="dt-sc-button medium pink">Sign-Up</a>
+                        }
+                        @* ............login.......................... *@
+                         @if (Session["loggedin"] != null)
+                {
+                    using (Html.BeginForm("logout", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        <input type="submit" value="LOGOUT" />
+                    }
+                    }
+                    
+                      @*@if (Session["loggedin"] != null)
+                {
+                  <p> Welcome</p> <h2>@Model.UserName</h2>
+                    }*@
+                        @* ............login.......................... *@
                          @* <span class="fa fa-envelope"></span>*@
 					</p>
                     <p class="phone-no">
@@ -131,8 +162,8 @@
                                 </ul> *@ 
                                 <a class="dt-menu-expand">+</a>                      
                             </li>
-                            <li class="mustard"> <a href="@Url.Action("About", "About")"> About us </a> </li>
-                            <li class="green"> <a href="@Url.Action("OurServices", "OurServices")"> Our Services </a> </li>
+                           @* <li class="mustard"> <a href="@Url.Action("About", "About")"> About us </a> </li>
+                  *@          <li class="green"> <a href="@Url.Action("OurServices", "OurServices")"> Our Services </a> </li>
                             <li class="yellow"> <a href="@Url.Action("Parent", "Services")"> Parents </a> </li>
                          <li class="yellow"> <a href="@Url.Action("Gallery", "Gallery")"> Gallery </a> </li>
                          
@@ -149,100 +180,7 @@
                                 <a class="dt-menu-expand">+</a>
                             </li>*@
                             
-                            <li class="menu-item-megamenu-parent megamenu-4-columns-group menu-item-depth-0 steelblue"> <a href="#" title=""> Pages </a> 
                             
-                                <div class="megamenu-child-container">
-                                    <ul class="sub-menu">
-                                        <li> <a href="index.html#">Useful Shortcodes</a>
-                                            <ul class="sub-menu">
-                                                <li> <a href="shortcodes.html">Typography </a> </li>
-                                                <li><a href="buttons-lists.html" title="">Buttons &amp; Lists</a></li>
-                                                <li><a href="columns.html" title="">Columns</a></li>
-                                                <li><a href="fancy-boxes.html" title="">Fancy Boxes</a></li>
-                                                <li><a href="icon-boxes.html" title="">Icon Boxes</a></li>
-                                                <li><a href="pricing-tables.html" title="">Pricing Tables</a></li>
-                                                <li><a href="progressbars.html" title="">Progress Bars</a></li>
-                                                <li><a href="quotes.html" title="">Quotes</a></li>
-                                    			<li><a href="tabs-toggles.html" title="">Tabs &amp; Toggles</a></li>
-                                            </ul>
-                                            <a class="dt-menu-expand">+</a> 
-                                        </li>
-                                       @* <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-1 menu-item-with-widget-area">
-                                            <a href="index.html#">Popular Products</a>
-                                            <div class="menu-item-widget-area-container">
-                                                <ul>
-                                                    <li class="widget widget_popular_products">
-                                                        <ul class="product_list_widget">
-                                                            <li>
-                                                                <a href="index.html#" title="">
-                                                                <img src="~/Images/product_thumb1.jpg" alt="product"> Ellents Style Grade </a>
-                                                                <span class="amount">$20.00</span>
-                                                            </li>
-                                                            <li>
-                                                                <a href="index.html#" title="">
-                                                                <img src="~/Images/product_thumb2.jpg" alt="product"> Ellents Style Grade </a>
-                                                                <span class="amount">$20.00</span>
-                                                            </li>
-                                                            <li>
-                                                                <a href="index.html#" title="">
-                                                                <img src="~/Images/product_thumb3.jpg" alt="product"> Ellents Style Grade </a>
-                                                                <span class="amount">$20.00</span>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>*@
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-1 menu-item-with-widget-area  fill-two-columns">
-                                            <a href="index.html#">Featured Blog</a>
-                                            <div class="menu-item-widget-area-container">
-                                            	<ul>
-                                                	<li class="widget widget_recent_entries">
-                                                    	<div class="entry-thumb">
-                                                        	<a href="#"><img src="~/Images/mega_menu_blog_img1.jpg" alt="" title=""></a>
-                                                        </div>
-                                                        <div class="entry-body">
-                                                        	<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.</p>
-                                                        </div>
-                                                        <div class="entry-details">
-                                                        	@*<div class="entry-title">
-                                                            	<h5><a href="#"> Create your Works </a></h5>
-                                                            </div>*@
-                                                           @* <div class="entry-metadata">
-                                                            	<p class="author"><a href="#"> By Admin </a></p>
-                                                                <span class=""> | </span>
-                                                                <p class="comments"><a href="#"><span class="fa fa-comment"></span></a></p>
-                                                                <p class="date"> 10 Aug </p>
-                                                            </div>*@
-                                                        </div>
-                                                    </li>
-                                                    <li class="widget widget_recent_entries">
-                                                    	<div class="entry-thumb">
-                                                        	<a href="#"><img src="~/Images/mega_menu_blog_img2.jpg" alt="" title=""></a>
-                                                        </div>
-                                                        <div class="entry-body">
-                                                        	<p>Minima ve nostrum exercita tionem ullam corporis suscipit laboriosam, nisi ut aliquid ex.</p>
-                                                        </div>
-                                                        <div class="entry-details">
-                                                        	@*<div class="entry-title">
-                                                            	<h5><a href="#"> Best of the Blogs </a></h5>
-                                                            </div>*@
-                                                            @*<div class="entry-metadata">
-                                                            	<p class="author"><a href="#"> By Admin </a></p>
-                                                                <span class=""> | </span>
-                                                                <p class="comments"><a href="#"><span class="fa fa-comment"></span></a></p>
-                                                                <p class="date"> 10 Aug </p>
-                                                            </div>*@
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a class="dt-menu-expand">+</a>
-                            </li>
                             @*<li class="menu-item-simple-parent menu-item-depth-0 lavender"><a href="blog.html" title="">Blog</a>
                                 <ul class="sub-menu">
                                     <li><a href="blog-two-column.html">Blog Two Column</a>
@@ -288,14 +226,14 @@
                     </nav>
                     <!--nav ends-->
                    
-                    @* <form name="frcontact" class="contact-form" method="post" action="http://wedesignthemes.com/html/kidslife/php/contactmail.php">
-                        	
-                           
-                                <input id="name" name="txtname" type="text" placeholder="Name" required="">
-                                <input id="email" name="txtemail" type="email" placeholder="Email ID" required="">
-                           
-                         </form>
-                  *@ @* <ul class="dt-sc-social-icons">
+                                                            @* <form name="frcontact" class="contact-form" method="post" action="http://wedesignthemes.com/html/kidslife/php/contactmail.php">
+
+
+                                                <input id="name" name="txtname" type="text" placeholder="Name" required="">
+                                                <input id="email" name="txtemail" type="email" placeholder="Email ID" required="">
+        
+                                         </form>
+                    *@ @* <ul class="dt-sc-social-icons">
                         <li><a href="index.html#" title="Facebook" class="dt-sc-tooltip-top facebook"><span class="fa fa-facebook"></span></a></li>
                         <li><a href="index.html#" title="Youtube" class="dt-sc-tooltip-top youtube"><span class="fa fa-youtube"></span></a></li>
                         <li><a href="index.html#" title="Twitter" class="dt-sc-tooltip-top twitter"><span class="fa fa-twitter"></span></a></li>
@@ -312,85 +250,7 @@
 
     <footer>
             <!--footer-widgets-wrapper starts-->
-            <div class="footer-widgets-wrapper">
-                <!--container starts-->
-                <div class="container">
-                    
-                    <div class="column dt-sc-one-fourth first">
-                        <aside @*class="widget widget_text"*@>
-                            <h3 class="widgettitle red_sketch"> About Effective KIds Learning Website </h3>
-                            <p>Happy <a href="index.html"><strong>Kids Life</strong></a> comes with powerful theme options, which empowers you to quickly and easily build incredible store.</p>
-                            <ul>
-                                <li> <a href="index.html"> <b>></b> English Learning </a> </li>
-                                <li> <a href="index.html"><b>></b> Maths Learning </a> </li>
-                                <li> <a href="index.html"><b>></b> General Knowledge </a> </li>
-                                <li> <a href="index.html"><b>></b> Arts & Craft </a> </li>
-                               
-                            </ul>
-                        </aside>
-                    </div>
-                    <div class="column dt-sc-one-fourth">
-                        <aside class="widget widget_recent_entries">
-                            <h3 class="widgettitle green_sketch"> Latest Post </h3>
-                            <ul>
-                                <li>
-                                    <a href="index.html">
-                                        <img src="~/Images/blog_list1.jpg" alt="" title="">
-                                    </a>    
-                                    <h6><a href="index.html"> Amazing post with all  goodies </a></h6>
-                                    <span> March 23, 2014 </span>       
-                                </li>
-                                <li>
-                                    <a href="index.html">
-                                        <img src="~/Images/blog_list2.jpg" alt="" title="">
-                                    </a>
-                                    <h6><a href="index.html"> Amazing post with all  goodies </a></h6>
-                                    <span> March 23, 2014 </span> 
-                                </li>
-                                <li>
-                                    <a href="index.html">
-                                        <img src="~/Images/blog_list3.jpg" alt="" title="">
-                                    </a>
-                                    <h6><a href="index.html"> Amazing post with all  goodies </a></h6>
-                                    <span> March 23, 2014 </span> 
-                                </li>
-                            </ul>
-                        </aside>
-                    </div>
-                    <div class="column dt-sc-one-fourth">
-                        <aside class="widget tweetbox">
-                            <h3 class="widgettitle yellow_sketch"><a href="index.html#"> Twitter Feeds </a></h3>
-                            <div id="tweets_container"></div>
-                        </aside>
-                    </div>
-                    <div class="column dt-sc-one-fourth">
-                        <aside class="widget widget_text">
-                        <h3 class="widgettitle steelblue_sketch">Contact</h3>
-                            <div class="textwidget">
-                                <p class="dt-sc-contact-info"><span class="fa fa-map-marker"></span> 4318 Mansion House, Greenland <br> United States </p>
-                                <p class="dt-sc-contact-info"><span class="fa fa-phone"></span> (000) 233 - 3236 </p>
-                                <p class="dt-sc-contact-info"><span class="fa fa-envelope"></span><a href="mailto:yourname@somemail.com"> Kidslife@KidsLife.com </a></p>
-                            </div>
-                        </aside>
-                        <aside class="widget mailchimp">
-                            <p> We're social </p>
-                            <form name="frmnewsletter" class="mailchimp-form" action="subscribe.htm" method="post">
-                                <p>
-                                   @* <span class="fa fa-envelope-o"> </span>*@
-                                    <input type="email" placeholder="Email Address" name="mc_email" required />	
-                                </p>	
-                                <input type="submit" value="Subscribe" class="button" name="btnsubscribe">
-                            </form>
-                            @* .....................................for ajax............................................................ *@
-                            <div id="ajax_subscribe_msg"></div>
-                       @* .....................................for ajax............................................................ *@
-                     
-                               </aside>
-                    </div>
-                    
-                </div>    
-                <!--container ends-->
-            </div>
+            
             <!--footer-widgets-wrapper ends-->  
             <div class="copyright">
         		<div class="container">
